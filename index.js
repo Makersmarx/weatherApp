@@ -9,6 +9,10 @@ const tempsThree = document.querySelector('.tempsThree');
 const weatherIcon = document.querySelector('.icon');
 const weatherIconTwo = document.querySelector('.iconTwo');
 const weatherIconThree = document.querySelector('.iconThree');
+const todayDate = new Date();
+const date = `${
+  todayDate.getMonth() + 1
+}/${todayDate.getDate()}/${todayDate.getFullYear()}`;
 // Note all temps return same max / low
 
 // Test data used in url to get data
@@ -31,9 +35,7 @@ const weather = async () => {
     ).textContent = `Weather Forecast For ${data.city}, ${data.region} `;
     console.log(data);
     // use above lat lon for call to get local weather fro city
-    const getWeatherURL = `https://se-weather-api.herokuapp.com/api/v1/forecast?latitude=${
-      weather.lat
-    }&longitude=${weather.long}&date=${new Date()}`;
+    const getWeatherURL = `https://se-weather-api.herokuapp.com/api/v1/forecast?latitude=${weather.lat}&longitude=${weather.long}&date=${date}`;
 
     const resWeather = await fetch(getWeatherURL);
 
