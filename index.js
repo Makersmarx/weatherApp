@@ -33,14 +33,14 @@ const weather = async () => {
     document.querySelector(
       '.header'
     ).textContent = `Weather Forecast For ${data.city}, ${data.region} `;
-    console.log(data);
+    //console.log(data);
     // use above lat lon for call to get local weather fro city
     const getWeatherURL = `https://se-weather-api.herokuapp.com/api/v1/forecast?latitude=${weather.lat}&longitude=${weather.long}&date=${date}`;
 
     const resWeather = await fetch(getWeatherURL);
 
     const weatherData = await resWeather.json();
-    console.log(weatherData);
+    //console.log(weatherData);
 
     // render todays weather
     // console.log(weatherData.daily.data[0].icon);
